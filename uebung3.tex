@@ -1,0 +1,116 @@
+%
+% 
+% Geschrieben im WS 2013/2014 an der TU München
+% von Markus Hofbauer und Kevin Meyer für LaTeX4EI (latex4ei.de)
+% Kontakt: latex@kevin-meyer.de oder via Kontaktformular auf http://latex4ei.de
+
+% Dokumenteinstellungen
+% ======================================================================	
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{scientific}
+\usepackage[european]{circuitikz}
+
+\sisetup{per-mode=fraction,output-decimal-marker={,}}
+
+% Nicht neuen, sondern alten Vector benutzen
+\let\newvec = \vec
+\let\vec = \oldvec
+
+% Dokumentbeginn
+% ======================================================================
+
+\begin{document}
+
+\title{GEM Übung: \textbf{Blatt 3} Mitschrift}
+\date{12. und 19. November 2013}
+\author{Kevin Meyer}
+\maketitle
+
+%\section*{Zusammenfassung}
+
+% Aufgabe 1
+\section{Aufgabe}
+\begin{align*}
+2p = 4
+\end{align*}
+
+% Aufgabe 2
+\section{Aufgabe}
+Zeichnung: Siehe Lösung.
+
+% Aufgabe 3
+\section{Aufgabe}
+\begin{align*}
+B_\delta = \frac{\Phi_\text{Pol}}{A_\text{Pol}}\\
+\Phi_\text{Pol}= B_\delta \cdot A_\text{Pol} = B_\delta \cdot b_p \cdot l_i\\
+b_p = \beta_p \cdot\frac{D_A}{2} \cdot \frac{2\pi}{\SI{360}{\degree}} = \ldots = \SI{0.346}{\meter}\\
+\Rightarrow\Phi_\text{Pol} = \SI{138.4}{\milli\weber}
+\end{align*}
+
+% Aufgabe 4
+\section{Aufgabe}
+\begin{align*}
+\delta' = k_c \cdot \delta_\text{ges}\\
+k_c = k_{c1}\cdot k_{c2} \\
+\text{Hier: }\k_{c1} = 1 \text{ Da Stator ohne Nutteilung.}\\
+k_c = k_{c2} = \frac{\tau_N}{\tau_n - \gamma\cdot\delta_g}\\
+\gamma = \frac{(\frac{b_d}{\delta_g})^2}{5+\frac{b_s}{\delta_g}} = \SI{1,819}{}\\
+k_c = \SI{1,263}{}\\
+\delta' = \SI{3,79}{\milli\meter}
+\end{align*}
+
+% Aufgabe 5
+\section{Aufgabe}
+\begin{align*}
+\oint H \diff l = \Theta_\text{ges}\\
+2 \cdot \delta \cdot H_\delta = \Theta_{1,1} \cdot 2\\
+\delta' \cdot H_\delta = \Theta_{1,1}\\
+\delta' \cdot \frac{B_\delta}{\mu_0} = \Theta_{1,1} = \ldots = \SI{3016}{\ampere}
+\end{align*}
+
+% Aufgabe 6
+\section{Aufgabe}
+\begin{align*}
+2\cdot \delta' \cdot H_\delta + 2 \cdot h_Z \cdot H_Z = 2 \cdot \Theta_{1,2}\\
+B_\delta\cdot A_{\tau_N} = B_Z \cdot A_Z\\
+B_\delta \cdot \tau_N \cdot l_i = B_Z \cdot b_Z \cdot l_i \cdot k_\text{Fe}\\
+B_Z = \frac{\tau_N}{b_Z}\cdot \frac{1}{k_\text{Fe}}\cdot B_\delta = \SI{2.93}{\tesla}\\
+\text{Ablesen: }H_Z = \SI{40}{\kilo\ampere\per\meter}\\
+V_Z = h_Z \cdot H_Z = \ldots = \SI{1440}{\ampere}\\
+\Theta_{1,2} = \Theta_{1,1} + V_Z = \ldots = \SI{4456}{\ampere}
+\end{align*}
+
+% Aufgabe 7
+\section{Aufgabe}
+\begin{align*}
+\Theta = - \int a \diff l\\
+\diff l = \frac{D}{2} \diff \vartheta\\
+V(\vartheta) = \Theta(\vartheta) = - \frac{D}{2} \cdot \int a \diff \vartheta\\
+\end{align*}
+
+Ende Übung vom 12.11.2013
+
+% Aufgabe 8
+\section{Aufgabe}
+Zeichung: Siehe Lösung\\
+
+% Aufgabe 9
+\section{Aufgabe}
+\begin{align*}
+\Theta_\text{Nut} = 4 \cdot \SI{114}{\ampere} = \SI{456}{\ampere}\\
+\bar{a}_m = \frac{\sum i}{l}\\
+\bar{a}_m = \frac{\Theta_\text{Nut}}{\tau_N}\\
+\text{oder: } \bar{a}_m = \frac{\Theta_\text{Polteilung}}{\tau_p} = \frac{72 \cdot \si{0,25} \cdot \SI{456}{\ampere}}{D \cdot \pi \cdot \si{0,25}}\\
+\ldots = \SI{17,42}{\kilo\ampere\per\meter}\\
+V(\vartheta) = - \frac{D}{2} \cdot \int a \cdot \diff \vartheta \rightarrow \text{ Skizze (noch keine Werte)}\\
+\abs{V_\text{ma}} = a_m \cdot \frac{\tau_p}{2} = \ldots = \SI{4102}{\ampere}\\
+V_\text{2,Polrand} = V_\text{2,max} \cdot \frac{\SI{33}{\degree}}{\SI{45}{\degree}} = \SI{3008}{\ampere}\\
+B_\text{2,Polrand} = \mu_0 \cdot \frac{V_\text{2,Polrand}}{\delta'} = \ldots = \SI{1}{\tesla}
+\end{align*}
+
+Ende Übung vom 19.11.2013
+
+\end{document}

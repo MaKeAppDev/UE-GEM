@@ -1,0 +1,123 @@
+%
+% 
+% Geschrieben im WS 2013/2014 an der TU München
+% von Markus Hofbauer und Kevin Meyer für LaTeX4EI (latex4ei.de)
+% Kontakt: latex@kevin-meyer.de oder via Kontaktformular auf http://latex4ei.de
+
+% Dokumenteinstellungen
+% ======================================================================	
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{scientific}
+\usepackage[european]{circuitikz}
+\usepackage{hyperref}
+
+\sisetup{per-mode=fraction,output-decimal-marker={,}}
+
+% Nicht neuen, sondern alten Vector benutzen
+\let\newvec = \newvec
+\let\newvec = \oldvec
+
+% Dokumentbeginn
+% ======================================================================
+
+\begin{document}
+
+\title{GEM Übung: \textbf{Blatt 7} Mitschrift}
+\date{14. Januar 2014}
+\author{Kevin Meyer}
+\maketitle
+
+
+% Aufgabe 1
+\section{Aufgabe}
+\subsection{}
+\begin{align*}
+n_N = \frac{f_1}{p} = \frac{\SI{50}{\hertz}}{2} = \SI{1500}{\per\minute}
+\end{align*}
+
+\subsection{}
+\begin{align*}
+X_d = X_{1 \sigma} + X_{1h} = \ldots = \SI{21.8}{\ohm}
+\end{align*}
+\subsection{}
+\begin{circuitikz}
+\draw [american currents]
+	(0,2)
+	to [short, i=$\underline{I}_1$, o-](1, 2) 
+	to [R=$R_1$](3.5,2)
+	to [L=$jX_{1\sigma}$] (5.5,2)
+	to [L=$jX_{1h}$] (7.5,2)
+	to [V=$\underline{U}_\text{iP}$] (7.5,0)
+	to [short, -o]		(0,0)
+	to [open, v^=$\underline{U}_1$]	(0,2);
+\end{circuitikz}
+\begin{circuitikz}
+\end{circuitikz}
+
+\section{Aufgabe}
+\subsection{}
+\begin{align*}
+U_{ip} = \sqrt{2} \cdot M_{21} \cdot \omega \cdot I_2\\
+U_{1N} I_{02}\\
+M_{21} = \frac{U_{1N}}{\sqrt{2} \cdot I_{02} \cdot \omega} = \ldots = \SI{127.9}{\milli\henry}
+\end{align*}
+
+\subsection{}
+\begin{align*}
+I_K = \frac{U_{1N}}{\newvec Z} = \frac{U_{1N}}{X_d} = \ldots = \SI{166,85}{\ampere}
+\end{align*}
+
+\section{Aufgabe}
+\subsection{}
+\begin{align*}
+\abs{I_{N1}} = \frac{S_N}{3 \cdot U_{1N}} = \ldots = \SI{229.1}{\ampere}\\
+\varphi = \arccos(\SI{-0.8}{}) = \pm \SI{143.1}{\degree}\\
+\varphi = \SI{-143.1}{\degree} \text{ weil Generator übererregt.}\\
+\newvec I_{N1} = \abs{I_{N1}} \cdot e^{j\varphi_I} = \SI{229.1}{\ampere} \cdot e^{j + \SI{143.1}{\degree}}
+\end{align*}
+
+\subsection{}
+\begin{align*}
+P_{N1} = \cos\varphi \cdot S_N = \SI{0.8}{} \cdot \SI{2.5}{\mega\volt\ampere} = \SI{-2}{\mega\watt}\\
+P_{mN} = P_{N1}
+\end{align*}
+
+\subsection{}
+\begin{align*}
+M_{iN} = \frac{P_{mN}}{\omega_N} = \frac{\SI{-2}{\mega\watt}}{2\pi \cdot n_\text{syn}} = \ldots = \SI{-12.73}{\newton\meter}
+\end{align*}
+
+\subsection{}
+\begin{align*}
+\vec U_{ip} = U_{1} - jX_d \cdot \vec I_1 = \SI{3637}{\volt} - j\SI{21.8}{\ohm} = \SI{6.64}{\kilo\volt} + j\SI{3.99}{\kilo\volt} = \SI{7.747}{\kilo\volt} \cdot e^{j \SI{31}{\degree}}\\
+\vartheta = \SI{31.1}{\degree}
+\end{align*}
+
+\subsection{}
+\begin{align*}
+M_K = 3 \cdot \frac{p}{\omega} \cdot \frac{U_{ip} \cdot U_1}{X_d} = \ldots = \SI{24.68}{\kilo\newton\meter}
+\end{align*}
+
+\subsection{Test}
+\begin{align*}
+M_D = - \sin\theta \cdot M_k \rightarrow \theta = \arcsin\left(-\frac{\SI{12.73}{\kilo\newton\meter}}{\SI{24.86}{\kilo\newton\meter}}\right)\\
+\vartheta = \SI{31.06}{\degree}
+\end{align*}
+
+\subsection{}
+\begin{align*}
+I_{2N} = \frac{U_{ipN}}{\sqrt{2} \cdot M_{21} \cdot \omega} = \SI{136.3}{\ampere}
+\end{align*}
+
+\subsection{}
+\begin{align*}
+I_{2N} \Rightarrow \Phi_ E\\
+I_1 \Rightarrow \Phi_1\\
+\epsilon_\text{el} = \varphi_{I2} - \varphi_{I1} = \SI{360}{\degree} - \SI{59}{\degree} - \SI{143}{\degree} = \SI{158}{\degree}\\
+\epsilon_m = \frac{\epsilon_\text{el}}{p} = \SI{79}{\degree}
+\end{align*}
+
+\end{document}

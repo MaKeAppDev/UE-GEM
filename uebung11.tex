@@ -1,0 +1,141 @@
+%
+% 
+% Geschrieben im WS 2013/2014 an der TU München
+% von Markus Hofbauer und Kevin Meyer für LaTeX4EI (latex4ei.de)
+% Kontakt: latex@kevin-meyer.de oder via Kontaktformular auf http://latex4ei.de
+
+% Dokumenteinstellungen
+% ======================================================================	
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{scientific}
+\usepackage[european]{circuitikz}
+\usepackage{hyperref}
+
+\sisetup{per-mode=fraction,output-decimal-marker={,}}
+
+% Nicht neuen, sondern alten Vector benutzen
+\let\newvec = \newvec
+\let\newvec = \oldvec
+
+% Dokumentbeginn
+% ======================================================================
+
+\begin{document}
+
+\title{GEM Übung: \textbf{Blatt 11} Mitschrift}
+\date{4. Februar 2014}
+\author{Kevin Meyer}
+\maketitle
+
+
+% Aufgabe 1
+\section{Aufgabe}
+\begin{center}
+\begin{circuitikz}
+\draw [american currents]
+	(0,2)
+	to [short, i=$\underline{I}_1$, o-](.5, 2)
+	to [L=$j\omega_1L_{1\sigma}$](4,2)
+	to [L=$j\omega_1L_{1h}$, i=$\underline{I}_{1\mu}$, v>=$\underline{U}_{1i}$, *-*] (4,0)
+	(4,2)
+	to [L=$j\omega_1L_{2\sigma}'$](6,2)
+	to [R=$\frac{R_{2,\text{ges}}'}{s}$, i<=$\underline{I}_2'$, -o](8,2)
+	to [open, v^>=$\underline {U_2}'$] (8,0) 
+	to [short, o-o]	(0,0)
+	to [open, v^=$\underline{U}_1$]	(0,2);
+\end{circuitikz}
+\end{center}
+
+\begin{align*}
+\abs{\underline U_{i1}} = \abs{\underline U_1} \cdot \frac{L_{1h}}{L_{1h} + L_{1\sigma}} = \abs{\underline{U}_1} \cdot \frac{1}{1 + \sigma_1} = \ldots = \SI{278.4}{\volt}\\
+\abs{\underline U_1} = \frac{U_\text{Netz}}{\sqrt{3}} = \ldots = \SI{288.7}{\volt}\\
+\abs{\underline U_2} = \frac{1}{\ddot{u}} \cdot \abs{\underline{U}_2'} = \ldots = \SI{173.98}{\volt}\\
+\abs{\underline U_{L2}} = \sqrt{3} \cdot \abs{\underline U_2} = \ldots = \SI{301.34}{\volt}\\
+I_2 = 0 \Rightarrow M_D = 0
+\end{align*}
+
+% Aufgabe 2
+\section{Aufgabe}
+\begin{align*}
+\text{Stromortskurve geht durch } \underline I_N, \underline I_A\\
+\text{Mittelpunkt auf Im-Achse, da } R_1 = 0\\
+\abs{\underline I_{Ki}} = \SI{1863}{\ampere}\\
+\abs{\underline I_{01}} = \SI{182}{\ampere}\\
+\fbox{$s_K = \tan \mu$}\\
+\text{ablesen: } \mu = \SI{6.7}{\degree}\\
+s_K = \tan \SI{6.7}{\degree} = \SI{11.7}{\percent}
+\end{align*}
+
+% Aufgabe 3
+\section{Aufgabe}
+\begin{align*}
+L_1 = L_{1h} + L_{1\sigma} = L_{1h} + L_{1h} \cdot \sigma_1 = L_{1h} \cdot (1 + \sigma_1)\\
+L_1 = \frac{\abs{\underline U_1}}{\omega \cdot \abs{\underline I_{01}}} = \ldots = \SI{5.049}{\milli\henry}\\
+L_{1h} = \frac{L1}{1 + \sigma_1} = \ldots = \SI{4.869}{\milli\henry}\\
+I_{Ki}\ (\text{bei } s\rightarrow\infty) \Rightarrow I_{Ki} = \frac{\abs{\underline{U}_1}}{\omega \cdot L_\sigma}\\
+L_\sigma = \frac{\abs{\underline U_1}}{\omega \cdot \abs{\underline I_{Ki}}} = \SI{0.4937}{\milli\henry}\\
+\sigma = \frac{L_\sigma}{L_1} = \ldots = \SI{0.0977}{}
+\sigma = 1 - \frac{1}{(1+\sigma_1)(1+\sigma_2)}\\
+\sigma_2 = \frac{1}{(1+\sigma_1)\cdot (1-\sigma)} -1 = \SI{0.0688}{}\\
+L_{\sigma 2} = \sigma_2 \cdot L_{1h} = \ldots = \SI{0.335}{\milli\henry}\\
+M_K = \frac{3}{2}p \cdot (1-\sigma) \cdot \frac{U_1^2}{\omega^{2} L_\sigma} = \ldots = \SI{13.9}{\kilo\newton\meter}
+\end{align*}
+
+% Aufgabe 4
+\section{Aufgabe}
+
+% Aufgabe 5
+\section{Aufgabe}
+\begin{align*}
+s_K \hat{=} \SI{10}{\centi\metre}\\
+s_N \triangleq \SI{1.95}{\centi\meter}\\
+s_N = s_K \cdot \frac{\SI{1.95}{\centi\meter}}{\SI{10}{\centi\meter}} = \SI{2.29}{\percent}\\
+n_N = n_\text{syn} \cdot (1 - s_N) = \ldots = \SI{488.35}{\per\minute}
+\end{align*}
+
+% Aufgabe 6
+\section{Aufgabe}
+\begin{align*}
+m_M:\ \text{Drehmomentmaßstab}\\
+m_M = \frac{3}{2\pi \cdot n_\text{syn}} \cdot \abs{\underline{U}_1} \cdot m_I = \ldots = \SI{1.654}{\kilo\newton\meter\per\centi\meter}\\
+M_{iA} = \overline{P_AB} \cdot m_M = \SI{3.2}{\kilo\newton\meter}\\
+M_{iN} = \overline{P_NB} \cdot m_M = \SI{5.22}{\kilo\newton\meter}
+\end{align*}
+
+% Aufgabe 7
+\section{Aufgabe}
+\begin{align*}
+s_K^* = 1\\
+s_K = \frac{\rho_2}{\sigma} = \frac{\frac{R_2}{\omega\cdot L_2}}{\sigma} = \frac{R_2}{\sigma \cdot \omega L_2}\\
+\frac{s_K^*}{s_K} = \frac{R_2^*}{R_2} = \frac{1}{\SI{0.117}{}}\\
+R_2^* = \ldots = \SI{55.75}{\milli\ohm}\\
+R_2^* = R_2 + R_{V2}\\
+R_{V2} = R_2^* - R_2 = \SI{49.23}{\milli\ohm}\\
+R_{\text{ges},2}' = R_2' + R_{V2}' = \ddot{u}^2 \cdot R_2^* = \ldots = \SI{142.72}{\milli\ohm}
+\end{align*}
+
+% Aufgabe 8
+\section{Aufgabe}
+\begin{align*}
+n_8 = n_\text{syn} (1 - s_{N,\text{neu}})\\
+(s_K=1, M_N, M_K\ \text{bleiben wie bisher})\\
+s_{N,\text{neu}} = \begin{cases}\fbox{$\SI{0.195}{}$}\\ \SI{5.1}{} \end{cases}\\
+\Rightarrow n_8 = \SI{402}{\per\minute}
+\end{align*}
+
+% Aufgabe 9
+\section{Aufgabe}
+\begin{align*}
+P_\text{el} = 3 \cdot U_1 \cdot I_1 \cos \varphi\\
+P_{Fel, Cul} = 0\\
+P_\delta = P_\text{el}\\
+P_\delta = 2\pi \cdot n_\text{syn} \cdot M_N\\
+P_W = 2\pi \cdot n_8 \cdot M_N\\
+P_R = 0\\
+P_{Cu} = P_\delta - P_W\\
+P_{Cu2} = \frac{R_2}{R_2 * R_{2V}} \cdot P_{Cu, \text{ges}}
+\end{align*}
+\end{document}

@@ -1,0 +1,128 @@
+%
+% 
+% Geschrieben im WS 2013/2014 an der TU München
+% von Markus Hofbauer und Kevin Meyer für LaTeX4EI (latex4ei.de)
+% Kontakt: latex@kevin-meyer.de oder via Kontaktformular auf http://latex4ei.de
+
+% Dokumenteinstellungen
+% ======================================================================	
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{scientific}
+\usepackage[european]{circuitikz}
+\usepackage{hyperref}
+
+\sisetup{per-mode=fraction, locale=DE}
+
+% Nicht neuen, sondern alten Vector benutzen
+\let\newvec = \vec
+\let\vec = \oldvec
+
+% Dokumentbeginn
+% ======================================================================
+
+\begin{document}
+
+\title{GEM Übung: \textbf{Blatt 4} Mitschrift}
+\date{3. Dezember 2013}
+\author{Kevin Meyer}
+\maketitle
+
+\section*{Zusammenfassung}
+\begin{align}
+\Phi_E = k_\Phi \cdot I_E\\
+M_i = k_M \cdot I_A \cdot \Phi_E\\
+U_A = I_A \cdot R_A + U_i + U_B \label{3} \\
+U_i = k_U \cdot n \cdot \Phi_E\\
+M_i = M_L + M_R + M_\text{Besch}
+\end{align}
+
+\begin{figure}
+\begin{center}
+\begin{circuitikz}			
+\draw [american currents]
+	(0,2) 
+	to [R=$R_A$, o-]		(2,2)
+	to [short, i=$I_A$]	(2.01,2)
+	to [L=$L_A$]			(4,2)
+	to [I_=$U_i$]		(4,0)
+	to [short, -o]		(0,0)
+	to [open, v^=$U_A$]	(0,2);
+\draw
+	(6,0.5) 
+	to [short, o-]		(6,1)
+	to [R=$R_E$]			(8,1)
+	to [short, i=$I_E$, -o]		(8,0.5)
+	to [open, v^=$U_E$]	(6,0.5);
+\draw [->, >=latex]
+	(4.8,1) -- (5.5,1);
+\draw	
+	(5.1,1.25) node {$\Phi_E$};
+\end{circuitikz}
+\end{center}
+\caption{ESB: Gleichstromnebenschluss Motor}
+\end{figure}
+
+\pagebreak
+
+% Aufgabe 1
+\section{Aufgabe}
+\begin{align*}
+k_M = \frac{2 \cdot p \cdot w_A}{\pi} = \ldots = \SI{72.57}{}\\
+k_U = k_M \cdot 2 \pi = \SI{456}{}\\
+\textbf{LL: } M = 0 \Rightarrow I_A = 0 \\
+\eqref{3} \Rightarrow U_A = U_i\\
+n = \frac{U_i}{k_U \cdot \Phi_{EN}} = \ldots = \SI{16.666}{\per\second} = \SI{1000}{\per\minute}
+\end{align*}
+
+% Aufgabe 2
+\section{Aufgabe}
+\begin{align*}
+M_{iN} = k_M \cdot \Phi_{EN} \cdot I_{AN} = \ldots = \SI{714}{\newton\meter}\\
+n = \frac{U_{iN}}{k_U \cdot \Phi_{EN}}\\
+U_{iN} = U_{AN} - R_{A, \text{res}} = \SI{206.4}{\volt}\\
+n = \ldots = \SI{15.64}{\per\second} = \SI{938}{\per\minute}\\
+M_R = 0\\
+P_N = P_\text{Welle} \text{ (Motor!)}\\
+P_N = 2\pi \cdot n_N \cdot M_L = \ldots = \SI{70.2}{\kilo\watt}\\
+\eta = \frac{P_\text{ab}}{P_\text{auf}} = \frac{P_N}{U_{AN} \cdot I_{AN} + U_{EN} \cdot I_{EN}} = \ldots = \SI{92.8}{\percent}\\
+\end{align*}
+
+% Aufgabe 3
+\section{Aufgabe}
+\begin{align*}
+\text{Anlauf: } n = 0 \Rightarrow U_i = 0\\
+U_A = I_A \cdot \left( R_{AV} + R_{A, \text{res}} \right)\\
+R_{AV} = \frac{U_N}{I_{AN}} - R_{A, \text{res}} = \ldots = \SI{0.6071}{\ohm}\\
+I_A = \frac{M}{k_M \cdot \Phi} = \ldots = \SI{170}{\ampere}\\
+U_i = U_N - \left( R_{A, \text{res}} + R_{AV}\right) \cdot I_A = \ldots = \SI{110}{\volt}\\
+n_3 = \frac{U_i}{k_U \cdot \Phi_{EN}} = \ldots = \SI{8.33}{\per\second} = \SI{500}{\per\minute}\\
+\eta = \frac{2\pi \cdot n \cdot M}{U_A \cdot I_A + U_{EN} \cdot I_{EN}} = \ldots = \SI{48.8}{\percent}
+\end{align*}
+
+% Aufgabe 4
+\section{Aufgabe}
+\begin{align*}
+U_A = R_{A, \text{res}} \cdot I_A + U_i \text{ (=0 im Anfahren)}\\
+U_A = \ldots = \SI{13.6}{\volt}\\
+U_i = k_U \cdot \Phi_{EN} \cdot n = \SI{110}{\volt}\\
+U_A =\ ?\\
+I_A = \frac{M}{k_M \cdot \Phi_E} = \SI{170}{\ampere}\\
+U_A = \ldots = \SI{116.8}{\volt}\\
+\eta = \frac{2\pi \cdot M \cdot n}{U_A \cdot I_A + U_E \cdot I_E} = \ldots = \SI{90.2}{\percent}\\
+\textbf{LL: } M = 0;\ I_A = 0;\ U_A = U_i\\
+n_0 = \frac{U_A}{k_U \cdot \Phi_{EN}} = \ldots = \SI{530.8}{\per\minute}
+\end{align*}
+
+% Aufgabe 5
+\section{Aufgabe}
+\begin{align*}
+\Phi_\text{Min} = \frac{M_{in}}{2} \cdot \frac{1}{k_M \cdot I_{AN}} = \SI{1.4475e-2}{\weber} = \frac{\Phi_{EN}}{2}\\
+I_E = \SI{1.5}{\ampere} \text{ (abgelesen)}\\
+U_i = U_{AN} - R_{A, \text{res}} \cdot I_{AN} = \ldots = \SI{206.4}{\volt}\\
+n_5 = \frac{U_i}{k_U \cdot \Phi_\text{Min}} = \SI{1876.8}{\per\minute}\\
+n_0 = \frac{U_N}{k_U \cdot \Phi_\text{Min}} = \SI{2000}{\per\minute}
+\end{align*}
+\end{document}

@@ -1,0 +1,89 @@
+%
+% 
+% Geschrieben im WS 2013/2014 an der TU München
+% von Markus Hofbauer und Kevin Meyer für LaTeX4EI (latex4ei.de)
+% Kontakt: latex@kevin-meyer.de oder via Kontaktformular auf http://latex4ei.de
+
+% Dokumenteinstellungen
+% ======================================================================	
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{scientific}
+\usepackage[european]{circuitikz}
+
+\sisetup{per-mode=fraction,output-decimal-marker={,}}
+
+% Nicht neuen, sondern alten Vector benutzen
+\let\newvec = \vec
+\let\vec = \oldvec
+
+% Dokumentbeginn
+% ======================================================================
+
+\begin{document}
+
+\title{GEM Übung: \textbf{Blatt 2} Mitschrift}
+\date{5. November 2013}
+\author{Kevin Meyer}
+\maketitle
+
+%\section*{Zusammenfassung}
+
+\section{Aufgabe}
+
+\begin{align*}
+B \rightarrow \underset{\text{ablesen}}{H} \rightarrow V_\text{mag} 
+\Rightarrow \sum V_\text{mag} = \Theta \\ \\
+B_\delta = \frac{\Phi}{A_\delta} = \ldots = \SI{1,643}{\tesla} \\
+H_\delta = \frac{B_\delta}{\mu} = \ldots = \SI{1307}{\kilo\ampere\per\meter} \\
+V_\delta = H_\delta\cdot 2\cdot \delta = \ldots = \SI{5229}{\ampere}\\
+B_S = \frac{\Phi}{A_S\cdot k_\text{Fe}} = \ldots = \SI{1,786}{\tesla}\\
+H_S: \text{ablesen} \Rightarrow \SI{11,2}{\kilo\ampere\per\meter}\\
+V_S = 2\cdot l_S\cdot H_S = \SI{2016}{\ampere}\\
+B_J = \frac{\Phi}{A_J\cdot k_\text{Fe}} = \SI{1,563}{\tesla}\\
+H_J: \text{ablesen} \Rightarrow \SI{2,95}{\kilo\ampere\per\meter}\\
+V_J = 2\cdot l_j\cdot H_J = \SI{708}{\ampere}\\
+\Phi = V_\delta + V_S +V_J = \SI{7953}{\ampere}\\ \\
+\framebox{\SI{2,55}{\milli\weber}} \\
+V_\delta \approx \SI{5800}{\volt}\\
+H_S \approx \SI{35}{\kilo\ampere\per\meter}\\
+V_S \approx \SI{6300}{\ampere}\\
+H_J \approx \SI{8300}{\ampere\per\meter}\\
+V_J \approx \SI{1800}{\ampere}\\
+\Theta_\text{ges} \approx \SI{13900}{A}
+\end{align*}
+
+Graph: Zeichnung siehe Kurzlösung.
+
+\section{Aufgabe}
+\begin{align*}
+u_i = \frac{\diff \Psi}{\diff t} = \frac{2\cdot w_\text{sp}\cdot \diff\Phi}{\diff t}\\
+\Phi(t) = \int \frac{\hat{U}\cdot\cos(\omega t)\cdot H}{2\cdot w_\text{sp}} \diff t = \frac{\hat{U}}{2\cdot w_\text{sp}\cdot \omega} \cdot \sin(\omega t) (+C)\\
+\Phi(t) = \SI{2,3}{\milli\weber} \cdot \sin(\omega t)
+\end{align*}
+
+\section{Aufgabe}
+\begin{align*}
+i(t) = ?\\
+\end{align*}
+\begin{center}
+\begin{tabular}{c||c|c|c}
+$\omega t$ & $\Phi(\omega t)$ & $\Theta$ & $i$ \\ 
+\hline \hline
+$\SI{0}{\degree}$ &  &  &  \\ 
+\hline 
+$\SI{10}{\degree}$ & $\SI{1,15}{\milli\weber}$ & $\SI{2675}{\ampere}$ & $\SI{3,6}{\ampere}$ \\ 
+\hline 
+\vdots &  &  &  \\ 
+\hline 
+$\SI{90}{\degree}$ & & &
+\end{tabular} 
+\end{center}
+
+\section{Aufgabe}
+
+Siehe Lösung
+
+\end{document}

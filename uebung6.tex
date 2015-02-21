@@ -1,0 +1,104 @@
+%
+% 
+% Geschrieben im WS 2013/2014 an der TU München
+% von Markus Hofbauer und Kevin Meyer für LaTeX4EI (latex4ei.de)
+% Kontakt: latex@kevin-meyer.de oder via Kontaktformular auf http://latex4ei.de
+
+% Dokumenteinstellungen
+% ======================================================================	
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{scientific}
+\usepackage[european]{circuitikz}
+\usepackage{hyperref}
+
+\sisetup{per-mode=fraction,output-decimal-marker={,}}
+
+% Nicht neuen, sondern alten Vector benutzen
+\let\newvec = \vec
+\let\vec = \oldvec
+
+% Dokumentbeginn
+% ======================================================================
+
+\begin{document}
+
+\title{GEM Übung: \textbf{Blatt 6} Mitschrift}
+\date{17. Dezember 2013}
+\author{Kevin Meyer}
+\maketitle
+
+\section*{Zusammenfassung}
+
+% Aufgabe 1
+\section{}
+Siehe Lösung.
+
+% Aufgabe 2
+\section{}
+\begin{align*}
+u_Y(t) = i_Y(t) \cdot \newvec{Z}\\
+i(t) = \hat{I}_{Y} \cdot \sin (\omega t)\\
+\newvec Z = R + j \cdot 2\pi \cdot f \cdot L = \SI{1.5}{\ohm} + j \SI{7.854}{\ohm}\\
+u_Y(t) = (\SI{1.5}{\ohm} + j \SI{7.854}{\ohm}) \cdot \sqrt{2} \cdot \SI{50}{\ampere} \cdot \sin(\omega t - \phi_i) = (\SI{106.07}{\volt} + j \SI{555.36}{\volt}) \cdot \sin(\omega t - \phi_i)\\
+\hat{U}_Y = \sqrt{(\SI{106.07}{\volt})^2 + (\SI{555.36}{\volt})^2} = \SI{565.4}{\volt}\\
+\hat{U}_V = \sqrt{3} \cdot \hat{U}_Y = \SI{979.3}{\volt}
+\end{align*}
+
+% Aufgabe 3
+\section{}
+\begin{align*}
+S = 3 \cdot U_\text{eff} \cdot I_\text{eff}\\
+U_{Y\text{eff}} = \frac{\hat{U}_Y}{\sqrt{2}} = \SI{399.8}{\volt}\\
+U_{\triangle\text{eff}} = \frac{\hat{U}_V}{\sqrt{2}} = \SI{692.47}{\volt}\\
+I_{Y\text{eff}} = \SI{50}{\ampere}\\
+I_{\triangle\text{eff}} = \sqrt{3} \cdot I_{Y\text{eff}} = \SI{86.6}{\ampere} \quad \left( \newvec{Z} = \frac{U_\triangle}{I_\triangle} = \frac{U_Y}{I_Y}\right)\\
+S_Y = 3 \cdot U_Y \cdot I_Y = \SI{59.97}{\kilo\volt\ampere}\\
+S_\triangle = \SI{179.86}{\kilo\volt\ampere}
+\end{align*}
+
+% Aufgabe 4
+\section{}
+\begin{align*}
+I_\triangle = \SI{86.6}{\ampere}\\
+U_\triangle = I_\triangle \cdot \newvec Z = \SI{129}{\volt} + j \SI{680.16}{\volt} = \SI{692.45}{\volt} \exp^{j \SI{79.188}{\degree}}\\
+P_\triangle = 3 \cdot \Re{U} \cdot I = \SI{33.748}{\kilo\watt}\\
+Q_\triangle = 3 \cdot \Im{U} \cdot I = \SI{176.7}{\kilo\text{Var}}\\
+\cos(\phi) = \cos(\SI{79.188}{\degree}) = \frac{P_\triangle}{S_\triangle} = 0.19\\
+\end{align*}
+
+% Aufgabe 5
+\section{}
+\begin{align*}
+\newvec Z_\text{ges1} = \newvec Z_L + (\newvec Z || 2 \newvec Z) + \newvec Z_L = 2 \newvec Z_L + \frac{\newvec Z \cdot 2 \newvec Z}{\newvec Z + 2 \newvec Z} = 2 \cdot \newvec Z_L + \frac{2}{3} \cdot \newvec Z\\
+\newvec Z_\text{ges2} = \left( (\newvec Z + \newvec Z_L^*) || 2(\newvec Z + \newvec Z_L^*) \right) = \frac{2}{3} \cdot (\newvec Z + \newvec Z_L^*) = \frac{2}{3} \newvec Z + \frac{2}{3} \newvec Z_L^*\\
+\newvec Z_\text{ges1} = \newvec Z_\text{ges2}\\
+2 \newvec Z_L + \frac{2}{3} \newvec Z = \frac{2}{3} \newvec Z_L^* + \frac{2}{3} \newvec Z\\
+\newvec Z_L^* = 3 \cdot \newvec Z_L
+\end{align*}
+
+% Aufgabe 6
+\section{}
+\begin{circuitikz}
+\draw
+	(0,4)
+	to [short, i=$\newvec I$, o-] (2,4)
+	to [R=$R$] (2,2)
+	to [L=$L$] (2,0)
+	to [short, -o] (0,0);
+\draw
+	(0,4) to [open, v>=$\newvec U$] (0,0);
+\end{circuitikz}
+
+% Aufgabe 7
+\section{}
+\begin{align*}
+\textbf{Stern } \newvec U = U_Y = \hat{U}_Y \cdot \frac{1}{\sqrt{2}} = \SI{399.8}{\volt}\\
+\newvec I = \frac{U}{\newvec Z} = \ldots = \SI{9.38}{\ampere} - j \SI{49.11}{\ampere} = \SI{50}{\ampere} \cdot \exp^{-j \SI{79.188}{\degree}}
+\end{align*}
+
+Zeigerdiagramm siehe Lösung.
+
+\end{document}

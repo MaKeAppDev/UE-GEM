@@ -1,0 +1,134 @@
+%
+% 
+% Geschrieben im WS 2013/2014 an der TU München
+% von Markus Hofbauer und Kevin Meyer für LaTeX4EI (latex4ei.de)
+% Kontakt: latex@kevin-meyer.de oder via Kontaktformular auf http://latex4ei.de
+
+% Dokumenteinstellungen
+% ======================================================================	
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{scientific}
+\usepackage[european]{circuitikz}
+
+\sisetup{per-mode=fraction,output-decimal-marker={,}}
+
+% Nicht neuen, sondern alten Vector benutzen
+\let\newvec = \vec
+\let\vec = \oldvec
+
+% Dokumentbeginn
+% ======================================================================
+
+\begin{document}
+
+\title{GEM Übung: \textbf{Blatt 1} Mitschrift}
+\date{29. Oktober 2013, 5. November 2013}
+\author{Kevin Meyer}
+\maketitle
+
+\section*{Zusammenfassung}
+\subsection*{Zusammenhänge}
+
+\begin{center}
+\begin{tabular}{c|c}
+\hline 
+magnetisch & elektrisch \\ 
+\hline \\
+$\theta = w \cdot I \unitof{\si{\ampere}}$ & $U$ \\ \\
+$\Phi \unitof{\si{\weber}}=\unitof{\si{\volt\second}} $& $I$\\ \\
+$B = \frac{\Phi}{A} (\Phi \bot A)$ & $s = \frac{I}{A}$\\ \\
+$\Phi = \iint\limits_A \vec{B} d \vec{A}$ &  \\ \\
+$V_m = R_m \cdot\Phi = \int\vec{H} \cdot d \vec{l}$ & $U = R_{el} \cdot I= \int\vec{E} \cdot d \vec{l}$\\ \\
+$R_m = \frac{l}{\mu\cdot A}$ & \\ \\
+$\mu = \mu_0 \cdot \mu_r$ & \\ \\
+\hline
+\end{tabular} 
+\end{center}
+
+\subsection*{Nützliche Gleichungen}
+\begin{align*}
+\text{rot} \vec{H} = \vec{s}\\
+\oint\vec{H} d \vec{l} = \theta\\
+B = \mu\cdot H\\
+\text{div}\vec{B}=0\\
+\sum\Phi = 0\\
+U_i = \frac{d\Psi}{dt}\\
+\Psi = \Phi\cdot w
+\end{align*}
+
+\newpage
+
+\section{Aufgabe}
+\subsection{}
+\begin{align*}
+\oint Hdl = \Theta\\
+2 \cdot H_\delta \cdot\delta = I \cdot w_{sp} \cdot 2\\
+H_\delta = \frac{2 \cdot w_{sp} \cdot I}{2 \cdot \delta} = \ldots = \SI{558}{\kilo\ampere\per\meter}\\
+B_\delta = \mu_0 H_\delta = \ldots = \SI{0,701}{\tesla}
+\end{align*}
+
+\subsection{}
+%Zeichnung einfügen! (Siehe Kurzlösung)
+
+\begin{center}
+\begin{circuitikz} 
+\draw	(0,2) to [R=$R_S$](2,2)
+			to [V<=$\Theta_1$](4,2)
+			to [R=$R_\delta$](6,2)
+			to [R=$R_J$](6,0)
+			to [R=$R_\delta$](4,0)
+			to [V<=$\Theta_2$](2,0)
+			to [R=$R_S$](0,0)
+			to [R=$R_J$] (0,2);
+\end{circuitikz}
+\end{center}
+
+\subsection{}
+\begin{align*}
+B_\delta = ?\\
+B_\delta = \frac{\Phi}{A_\delta}\\
+\Phi = \frac{\sum\Theta}{R_{ges}}\\
+R_{m Fe} = \frac{l}{\mu_0\mu_r \cdot A}\\
+A = A_{ges} \cdot k_{Fe}\\
+\vdots
+\end{align*}
+
+\subsection{}
+\begin{align*}
+F_L = l \cdot B_\delta \cdot I_L = \ldots = \SI{2,62}{\newton} \\
+M = F_L \cdot l_H = \ldots = \SI{0,262}{\newton\metre}
+\end{align*}
+
+\section{Aufgabe}
+\subsection{}
+\begin{align*}
+U(t) = \hat{U} \cdot \cos (\omega t) \\
+\hat{U} = 230 V \cdot \sqrt{2}\\
+U_i = \frac{d \Psi}{dt} = 2 w_{sp} \frac{d \Phi}{dt} \\
+\Phi = \int \frac{U_i}{2 w_{sp}} dt = \int \frac{\hat{U} \cos (\omega t)}{2w_{sp}} dt = \frac{\hat{U}}{2w_{sp} \omega} \sin (\omega t) + C (C=0) \\
+\Phi (t) = \frac{\ldots}{\ldots} \cdot \sin (\omega t) \\
+\Theta(t) = R_{mag} \cdot\Phi(t)\\
+i(t) = \frac{\Theta(t)}{2w_{sp}}\\
+\end{align*}
+
+Ende Übung vom 29.10.2013
+%\\Anfang Übung vom 05.11.2013
+
+\begin{align*}
+B_\delta(t) = \frac{\Phi(t)}{A_\delta} = \ldots = \SI{0,994}{\tesla} \cdot \sin(\omega t)
+\end{align*}
+
+\subsection{}
+\begin{align*}
+F_L = l \cdot B_\delta(t) \cdot I_L = \ldots = \SI{3,98}{\newton} \cdot \sin(\omega t) \\
+m_L = F_L \cdot l_H = \ldots = \SI{0.398}{\newton\meter} \cdot \sin(\omega t)\\
+\end{align*}
+
+\subsection{}
+\begin{align*}
+L= \frac{\Psi}{i} = \frac{2\cdot w_{sp}\cdot \Phi}{i} = \SI{0.227}{\henry}
+\end{align*}
+\end{document}

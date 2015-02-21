@@ -1,0 +1,116 @@
+%
+% 
+% Geschrieben im WS 2013/2014 an der TU München
+% von Markus Hofbauer und Kevin Meyer für LaTeX4EI (latex4ei.de)
+% Kontakt: latex@kevin-meyer.de oder via Kontaktformular auf http://latex4ei.de
+
+% Dokumenteinstellungen
+% ======================================================================	
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{scientific}
+\usepackage[european]{circuitikz}
+\usepackage{hyperref}
+
+\sisetup{per-mode=fraction,output-decimal-marker={,}}
+
+% Nicht neuen, sondern alten Vector benutzen
+\let\newvec = \newvec
+\let\newvec = \oldvec
+
+% Dokumentbeginn
+% ======================================================================
+
+\begin{document}
+
+\title{GEM Übung: \textbf{Blatt 8} Mitschrift}
+\date{21. Januar 2014}
+\author{Markus Hofbauer, Kevin Meyer}
+\maketitle
+
+
+% Aufgabe 1
+\section{Aufgabe}
+\begin{align*}
+U_1 = \frac{U_N}{\sqrt{3}} = \SI{6.06}{\kilo\volt}\\
+\abs{\vec{I_{N1}}}= \frac{S_N}{3 \cdot U_1} = \SI{605}{\ampere}\\
+\abs{\varphi} = \arccos(\SI{-0.8}{}) = \pm \SI{143}{\degree} \Rightarrow \varphi = \SI{-143}{\degree}\\
+\vec{I_{N1}} = \SI{605}{\ampere} \cdot e^{j\SI{143}{\degree}}\\
+n = \frac{f_1}{p} = \SI{25}{\per\second} = \SI{1500}{\per\minute}\\
+P_N = S_N \cdot \cos(\varphi) = \SI{8.8}{\mega\watt}
+\end{align*}
+
+% Aufgabe 2
+\section{Aufgabe}
+\begin{align*}
+X_d = 2\pi f \cdot (L_{1h} + L_{1\sigma}) = \SI{15.7}{\ohm}
+\end{align*}
+
+% Aufgabe 3
+\section{Aufgabe}
+\begin{align*}
+I_{02} = \frac{U_{ip}(=U_{1N})}{\omega \cdot M_{21} \cdot \sqrt{2}} = \SI{80}{\ampere}\\
+I_{K0} = \frac{U_1}{X_d} = \SI{386}{\ampere}
+\end{align*}
+
+% Aufgabe 4
+\section{Aufgabe}
+\begin{align*}
+\vec{U_{ipN}} = \vec{U_1} = j X_d \cdot I_{1N} = \SI{14}{\kilo\volt} \cdot e^{j\SI{32.8}{\degree}}
+\end{align*}
+
+% Aufgabe 5
+\section{Aufgabe}
+\begin{align*}
+U_{ip} = \omega \cdot M_{21} \cdot \sqrt{2} \cdot I_2\\
+I_{N2} = \SI{184.8}{\ampere}\\
+\abs{\vec{I_{KIII}}} = \frac{U_{ip}}{X_d} = \SI{891.7}{\ampere}
+\end{align*}
+
+% Aufgabe 6
+\section{Aufgabe}
+\begin{align*}
+\underline{U}_1 = \underline{U}_{iP} + jX_d\underline{I}_1\\
+\underbrace{\frac{U_1}{jX_d}}_{\underline{I}_{K0}} = \underbrace{\frac{\underline{U}_{iP}}{jX_d}}_{\underline{I}_{KIII}} + \underline{I}_1
+\end{align*}
+
+% Aufgabe 7
+\section{Aufgabe}
+Zeichnung
+
+% Aufgabe 8
+\section{Aufgabe}
+\begin{itemize}
+\item $\underline{I}_{K0}$ bleibt unverändert
+\item $\abs{\underline{I}_{KIII}}$ wird kleiner: $I_{KIII8} = \SI{0.8}{}\cdot I_{KIIIN}$
+\end{itemize}
+Zeichnung
+
+% Aufgabe 9
+\section{Aufgabe}
+Zeichnung
+\begin{itemize}
+\item ablesen $I_{KIII9} = \SI{610}{\ampere}$
+\item $I_{KIII} \sim U_{iP} = \sim I_2$
+\item $I_{29} = \frac{I_{KIII9}}{I_{KIIIN}}\cdot I_{2N} = \ldots = \SI{126.4}{\ampere}$
+\end{itemize}
+
+% Aufgabe 10
+\section{Aufgabe}
+Zeichnung
+\begin{itemize}
+\item $I_2 =$ konstant $\Rightarrow$ Radius konstant
+\item $P_1 = 0$
+\end{itemize}
+
+% Aufgabe 11
+\section{Aufgabe}
+Zeichnung
+\begin{itemize}
+\item $I_{KIII11} = \SI{470}{\ampere}$ ablesen
+\item $I_{211} = \frac{I_{KIII11}}{I_{KIIIN}}\cdot I_{2N} = \SI{97.4}{\ampere}$
+\end{itemize}
+
+\end{document}
