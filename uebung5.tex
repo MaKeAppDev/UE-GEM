@@ -15,6 +15,7 @@
 \usepackage{hyperref}
 
 \sisetup{per-mode=fraction, locale=DE}
+\DeclareSIUnit{\sqrtNm}{\ensuremath{\sqrt{\text{\newton\meter}}}}
 
 % Nicht neuen, sondern alten Vector benutzen
 \let\newvec = \vec
@@ -75,7 +76,7 @@ M_i(I_A) = k_M \cdot k_\Phi \cdot k_E \cdot {I_A}^2 = \ldots = \SI{10.94e-3}{\ne
 n_m = \frac{U_i}{k_U \cdot k_\Phi \cdot k_E \cdot I_A} = \frac{U_A - R_{A, \text{res}} \cdot I_A}{k_U \cdot k_\Phi \cdot k_E \cdot I_A} = \frac{U_A}{k_U \cdot k_\Phi \cdot k_E \cdot I_A} - \frac{R_{A,\text{res}}}{k_U \cdot k_\Phi \cdot k_E}\\
 I_A = \sqrt{\frac{M_i}{k_M \cdot k_\Phi \cdot k_E}}\\
 n_m = U_A \cdot \sqrt{\frac{1}{2\pi \cdot k_U \cdot k_\Phi \cdot k_E \cdot M_i}} - \frac{R_{A, \text{res}}}{k_U \cdot k_\Phi \cdot k_E}\\
-n_m(M_i) = \SI{167.24}{$\sqrt{\text{\newton\meter}}$\per\second} \cdot \frac{1}{\sqrt{M_i}} - \SI{0.87146}{\per\second}
+n_m(M_i) = \SI{167.24}{\sqrtNm\per\second} \cdot \frac{1}{\sqrt{M_i}} - \SI{0.87146}{\per\second}
 \end{align*}
 
 % Aufgabe 2
