@@ -1,12 +1,27 @@
-# Grundlagen elektrischer Maschinen [![wercker status](https://app.wercker.com/status/11198a357ea7c752accf231bbe110418/s "wercker status")](https://app.wercker.com/project/bykey/11198a357ea7c752accf231bbe110418)
-## Mitschrift Übungen
-**Required custom Package on GitHub:** [scientific.sty](https://github.com/latex4ei/latex4ei-packages)
+# Grundlagen elektrischer Maschinen
 
-### Links
+[![Build Status](https://travis-ci.org/MaKeAppDev/UE-GEM.svg?branch=master)](https://travis-ci.org/MaKeAppDev/UE-GEM)
+[![Join the chat at https://gitter.im/LaTeX4Ei/Lobby](https://badges.gitter.im/LaTeX4Ei/Lobby.svg)](https://gitter.im/LaTeX4Ei/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Fresh Development Version: [TUM-Projekte](https://makeappdev.github.io/TUM-Projekte/)  
-Public Version: [latex4ei.de](http://latex4ei.de)  
+## Formelsammlung für Latex4ei
+
+**Required custom Package on GitHub:** [LaTeX4Ei](https://github.com/latex4ei/latex4ei-packages)
+
+* [latex4ei.de](http://latex4ei.de)
+* [TUM-Projekte](https://makeappdev.github.io/TUM-Projekte/)
+
+## Optional: Build with CMake
+
+Download [UseLaTeX.cmake](https://cmake.org/Wiki/CMakeUserUseLATEX) and move to `/usr/share/cmake-X.X/Modules/.`
+
+```shell
+mkdir build
+cd build
+cmake ..
+make
+```
 
 ## Written by
+
 - Hofbauer, Markus
 - Meyer, Kevin
