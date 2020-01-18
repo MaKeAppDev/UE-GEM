@@ -17,12 +17,12 @@ script:
 - cp tmp/*.pdf export
 
 deploy:
-provider: pages
-skip-cleanup: true
-github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
-local-dir: export
-on:
-  branch: master
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+  local-dir: export
+  on:
+    branch: master
 
 notifications:
   email: false
