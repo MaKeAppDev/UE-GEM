@@ -1,5 +1,5 @@
 services:
-    - docker
+  - docker
 
 before_install:
 - docker pull makeappdev/uselatex
@@ -15,7 +15,6 @@ script:
 - echo "# This branch is for deployment only" >> export/README.md
 - docker cp uselatex:build/. tmp
 - cp tmp/*.pdf export
-- cp tmp/git.id export
 
 deploy:
 provider: pages
@@ -23,7 +22,7 @@ skip-cleanup: true
 github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
 local-dir: export
 on:
-    branch: master
+  branch: master
 
 notifications:
-email: false
+  email: false
